@@ -1,2 +1,2 @@
 # bitman
-A tiny tool to manipulate PLC bits
+A tiny tool to manipulate En/IP PLC bits
