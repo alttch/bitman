@@ -15,6 +15,8 @@ struct Opts {
     value: Option<u8>,
     #[clap(long = "timeout", default_value = "5.0")]
     timeout: f64,
+    #[clap(long = "path", default_value = "1,0")]
+    path: String,
 }
 
 const SLEEP_STEP: Duration = Duration::from_millis(1);
@@ -29,8 +31,8 @@ fn main() {
     }
     let opts = Opts::parse();
     let tag_path = format!(
-        "protocol=ab_eip&gateway={}&path=1,0&cpu=LGX&name={}",
-        opts.host, opts.tag
+        "protocol=ab_eip&gateway={}&path={}&cpu=LGX&name={}",
+        opts.host, opts.path, opts.tag
     );
     let path = ffi::CString::new(tag_path.clone()).unwrap();
     let timeout = Duration::from_secs_f64(opts.timeout);
