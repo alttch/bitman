@@ -15,7 +15,6 @@ pkg:
 	mkdir -p _build
 	cargo build --target x86_64-unknown-linux-musl --release
 	cargo build --target arm-unknown-linux-musleabihf --release
-	cargo build --target aarch64-unknown-linux-musl --release
 	cd target/x86_64-unknown-linux-musl/release && cp bitman ../../../_build/bitman-${VERSION}-x86_64
 	cd target/arm-unknown-linux-musleabihf/release && bitman ../../../_build/bitman-${VERSION}-arm-musleabihf
 	cd _build && echo "" | gh release create v$(VERSION) -t "v$(VERSION)" \
